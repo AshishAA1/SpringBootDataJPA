@@ -80,5 +80,20 @@ class StudentRepositoryTest {
 
     }
 
+    @Test
+    public void printStudentByEmailJPQL(){
+        
+        Student student = studentRepository.getStudentByEmailAddress("1@gmail.com");
+
+        System.out.println("student = " + student);
+    }
+
+    @Test
+    public void printFirstNameByEmaiId(){
+        String firstName = studentRepository.getStudentFirstNameByEmailAddress("1@gmail.com");
+
+        System.out.println("firstName = " + firstName);
+    }
+
 
 }
