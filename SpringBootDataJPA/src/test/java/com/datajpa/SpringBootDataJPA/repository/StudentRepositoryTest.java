@@ -81,35 +81,40 @@ class StudentRepositoryTest {
     }
 
     @Test
-    public void printStudentByEmailJPQL(){
-        
+    public void printStudentByEmailJPQL() {
+
         Student student = studentRepository.getStudentByEmailAddress("1@gmail.com");
 
         System.out.println("student = " + student);
     }
 
     @Test
-    public void printFirstNameByEmaiId(){
+    public void printFirstNameByEmaiId() {
         String firstName = studentRepository.getStudentFirstNameByEmailAddress("1@gmail.com");
 
         System.out.println("firstName = " + firstName);
     }
+
     @Test
-    public void printStudentEmaiIdNative(){
+    public void printStudentEmaiIdNative() {
         Student student = studentRepository.getStudentByEmailAddressNative("1@gmail.com");
 
         System.out.println("firstName = " + student);
     }
 
     @Test
-    public void printStudentByEmailAddressNativeNamedParam(){
+    public void printStudentByEmailAddressNativeNamedParam() {
 
         Student student = studentRepository.getStudentByEmailAddressNativeNamedParam("1@gmail.com");
 
         System.out.println("student = " + student);
     }
 
+    @Test
+    public void updateStudentNameByEmailIdTest() {
 
+        studentRepository.updateStudentNameByEmailId("Span", "1@gmail.com");
+    }
 
 
 }
