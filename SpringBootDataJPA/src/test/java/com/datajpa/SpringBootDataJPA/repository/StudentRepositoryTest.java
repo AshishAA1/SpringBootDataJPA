@@ -21,15 +21,15 @@ class StudentRepositoryTest {
     public void saveStudent() {
         Student student = Student.builder().emaiId("1@gmail.com").
                 firstName("ashish").lastName("adkeshwar").build();
-               // guardianName("Sheshi")
-              //  .guardianEmail("sheshi@gmail.com").
-               // guardianMobile("9890519511").build();
+        // guardianName("Sheshi")
+        //  .guardianEmail("sheshi@gmail.com").
+        // guardianMobile("9890519511").build();
 
         studentRepository.save(student);
     }
 
     @Test
-    public void printAllStudent(){
+    public void printAllStudent() {
 
         List<Student> studentList = studentRepository.findAll();
 
@@ -37,7 +37,7 @@ class StudentRepositoryTest {
     }
 
     @Test
-    public void saveStudentsWithGuardians(){
+    public void saveStudentsWithGuardians() {
 
         Guardian guardian = Guardian.builder().name("Manikantha").email("manikantha@gmial.com").mobile("9284556547").build();
 
@@ -45,6 +45,39 @@ class StudentRepositoryTest {
 
 
         studentRepository.save(student);
+    }
+
+    @Test
+    public void printStudentByFirstName() {
+
+        List<Student> students = studentRepository.findByFirstName("Ashish1");
+
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void pringStudentByFirstNameContaining() {
+
+        List<Student> students = studentRepository.findByFirstNameContaining("ash");
+
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void printStudentByGuardianName() {
+
+        List<Student> students = studentRepository.findByGuardianName("Sheshi");
+
+        System.out.println("students = " + students);
+    }
+
+    @Test
+    public void printStudentByFirstNameAndLastName() {
+
+        Student student = studentRepository.findByFirstNameAndLastName("Ashish1", "Adkeshwar");
+
+        System.out.println("student = " + student);
+
     }
 
 
